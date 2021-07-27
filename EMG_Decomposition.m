@@ -7,34 +7,21 @@ M= csvread(append(filename,'.csv')); %read in csv file
 %extract data from file, adjust use first section if no time column, second if csv contains time column.
 %Change channel_select within section that is used
 
-if(strcmp(filename,'EMG_example_20s_2000Hz-2016'))%for files without time data
-    fs = 2000;
-    total_samples = size(M,1);%get total number of samples
-    time = (0:total_samples-1)/fs;
-    time = time'; %get to column vector form
-    channel_number= size(M,2); %number of channels with no time column
-    channel_select= 2;% select channel desired channel, make sure channel_select<= channel_number
-    test_input= M(:,channel_select);%(add 1 since first col is time) test_input will go through all the individual sections
-    for i=1:channel_number
-        figure('Color',[1 1 1]);plot(time,M(:,i)); %plot each channel
-        str= sprintf('Channel %d',i);
-        xlabel('seconds');title(str);xlim([time(1) time(size(time,1))]); % label and title each plots
-    end
     
-else %for files with time data  
-    time= M(:,1); % first column is the time series
-    fs= (time(2)-time(1))^-1; % calculate the sample frequecy
-    channel_number= size(M,2)-1; % num of channels in the database
-    channel_select= 3;% select channel for testing, make sure channel_select<= channel_number
-    test_input= M(:,channel_select+1);%select desired channel, add 1 since first col is time, make sure channel_select<= channel_number
-    total_samples = size(time,1);%get total number of samples
-    %plot channel data
-    for i=1:channel_number
-        figure('Color',[1 1 1]);plot(time,M(:,i+1)); %plot each channel
-        str= sprintf('Channel %d',i);
-        xlabel('seconds');title(str);xlim([time(1) time(size(time,1))]); % label and title each plots
-    end
+%for files with time data
+time= M(:,1); % first column is the time series
+fs= (time(2)-time(1))^-1; % calculate the sample frequecy
+channel_number= size(M,2)-1; % num of channels in the database
+channel_select= 3;% select channel for testing, make sure channel_select<= channel_number
+test_input= M(:,channel_select+1);%select desired channel, add 1 since first col is time, make sure channel_select<= channel_number
+total_samples = size(time,1);%get total number of samples
+%plot channel data
+for i=1:channel_number
+    figure('Color',[1 1 1]);plot(time,M(:,i+1)); %plot each channel
+    str= sprintf('Channel %d',i);
+    xlabel('seconds');title(str);xlim([time(1) time(size(time,1))]); % label and title each plots
 end
+
 
 %% Filter Signal
 
