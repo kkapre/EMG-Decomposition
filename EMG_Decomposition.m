@@ -1,13 +1,9 @@
 %% Input file
-close all %close plots from previous run
 
 %to change input file: comment out current file and uncomment desired file or add new filename
 
 filename = 'EMG_example_2_fs_2k';
-%filename = '32171_P06_100618_PLATE_LG_EMG'
-%filename = 'EMG_example_20s_2000Hz-2016'
     
-
 M= csvread(append(filename,'.csv')); %read in csv file
 
 %extract data from file, adjust use first section if no time column, second if csv contains time column.
