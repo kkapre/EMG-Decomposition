@@ -1,7 +1,5 @@
 %% Input file
 
-%to change input file: comment out current file and uncomment desired file or add new filename
-
 filename = 'EMG_example_2_fs_2k';
     
 M= csvread(append(filename,'.csv')); %read in csv file
