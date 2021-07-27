@@ -1,7 +1,7 @@
 # EMG-Decomposition
 Decomposing raw electromyography data into motor unit action potentials (MUAPs) can help with understanding the science of muscles and with clinical diagnoses. 
 
-Based off project for class BIOE M260: Neuroengineering at UCLA
+Project for Neuroengineerig class at UCLA
 
 ### EMG_Background.pdf
 Gives background on EMG data and EMG decomposition
