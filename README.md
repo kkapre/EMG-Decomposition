@@ -11,4 +11,4 @@ MATLAB code starts with raw EMG data and outputs the shape of spikes from indivi
 
 Place data "EMG_example_2_fs_2k.csv" in the same directory to run. 
 ### EMG_Decomposition_Report.pdf
-Analysis sumamry with figures and results
+Analysis summary with figures and results
